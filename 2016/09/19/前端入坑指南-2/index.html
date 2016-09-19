@@ -1,0 +1,671 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="other," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前端入坑指南–学会制作静态页面朱宏伟
+
+ 本文供一些纠结要不要入门前端的同学观看。另本人水平有限， 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。 本篇学习完成后，你大概已经完成了前端入门的30%的内容。
+
+开始前所需要的准备(3h)
+配置要求
+
+前端开发估计是所有开发中要求平台配置最低的了，在windows平台下你甚至只需要2GB的内存，随便一颗cpu芯片就可以开始前端的学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端入坑指南(2)">
+<meta property="og:url" content="http://AirmaZ.github.io/2016/09/19/前端入坑指南-2/index.html">
+<meta property="og:site_name" content="HongWe's Notes">
+<meta property="og:description" content="前端入坑指南–学会制作静态页面朱宏伟
+
+ 本文供一些纠结要不要入门前端的同学观看。另本人水平有限， 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。 本篇学习完成后，你大概已经完成了前端入门的30%的内容。
+
+开始前所需要的准备(3h)
+配置要求
+
+前端开发估计是所有开发中要求平台配置最低的了，在windows平台下你甚至只需要2GB的内存，随便一颗cpu芯片就可以开始前端的学">
+<meta property="og:updated_time" content="2016-09-19T09:46:34.200Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端入坑指南(2)">
+<meta name="twitter:description" content="前端入坑指南–学会制作静态页面朱宏伟
+
+ 本文供一些纠结要不要入门前端的同学观看。另本人水平有限， 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。 本篇学习完成后，你大概已经完成了前端入门的30%的内容。
+
+开始前所需要的准备(3h)
+配置要求
+
+前端开发估计是所有开发中要求平台配置最低的了，在windows平台下你甚至只需要2GB的内存，随便一颗cpu芯片就可以开始前端的学">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://AirmaZ.github.io/2016/09/19/前端入坑指南-2/"/>
+
+  <title> 前端入坑指南(2) | HongWe's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HongWe's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">朱宏伟的前端笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端入坑指南(2)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-19T17:42:24+08:00" content="2016年09月19日">
+              2016年09月19日
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/19/前端入坑指南-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/19/前端入坑指南-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前端入坑指南–学会制作静态页面"><a href="#前端入坑指南–学会制作静态页面" class="headerlink" title="前端入坑指南–学会制作静态页面"></a>前端入坑指南–学会制作静态页面</h1><p>朱宏伟</p>
+<hr>
+<p> 本文供一些纠结要不要入门前端的同学观看。另本人水平有限，<br> 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。<br> 本篇学习完成后，你大概已经完成了前端入门的30%的内容。</p>
+<hr>
+<h2 id="开始前所需要的准备-3h"><a href="#开始前所需要的准备-3h" class="headerlink" title="开始前所需要的准备(3h)"></a>开始前所需要的准备(3h)</h2><blockquote>
+<p><strong>配置要求</strong></p>
+<ul>
+<li>前端开发估计是所有开发中要求平台配置最低的了，在windows平台下你甚至只需要2GB的内存，随便一颗cpu芯片就可以开始前端的学习之路。但考虑到你可能会使用到photoshop以及chrome等辅助工具，建议使用一台4GB以上、i5以上的cpu芯片来开发(windows平台、其他平台可参考)</li>
+</ul>
+<p><strong>编辑器</strong></p>
+<ul>
+<li>前端并不用配置额外的环境，只需要一个编辑器即可（没有后台的情况下）。在此我推荐三个主流的编辑器供大家选择，大家根据自己的需求来选用（随便选择，不需要在此过于纠结）</li>
+<li><a href="http://www.jetbrains.com/webstorm/" target="_blank" rel="external">webstorm</a>（集成了大部分开发者所需要的插件，十分方便，安装好即可食用，无需多余的插件管理。缺点：收费/可能更吃系统资源。<a href="http://www.gbtags.com/gb/share/2627.htm" target="_blank" rel="external">入门指南</a>）</li>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="external">sublime</a>（轻巧、响应速度快，扩展性十分强大，重点是免费好么！是目前前端开发中使用最多的编辑器之一，拥有赏心悦目的UI。<a href="http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html" target="_blank" rel="external">入门指南</a>）</li>
+<li><a href="https://atom.io/" target="_blank" rel="external">atom</a>（完全免费并开源，支持三大平台，拥有十分强大的扩展性。和git完美结合，但对于新手来说，和sublime区别不大，请各位看着谁舒服用谁。<a href="https://atom-china.org/t/atom/62" target="_blank" rel="external">入门指南</a>）</li>
+</ul>
+<p><strong>其他准备</strong></p>
+<ul>
+<li>chrome浏览器 firefox浏览器 （主要是用这两个控制台调试代码）</li>
+<li><a href="http://tieba.baidu.com/p/3153086220" target="_blank" rel="external">photoshop</a></li>
+</ul>
+</blockquote>
+<h2 id="HTML的学习-20h"><a href="#HTML的学习-20h" class="headerlink" title="HTML的学习(20h)"></a>HTML的学习(20h)</h2><blockquote>
+<p><a href="http://www.w3school.com.cn/html/" target="_blank" rel="external"><strong>请点击我跳转W3school页面进行详细学习HTML</strong></a></p>
+<ul>
+<li>html是负责编写页面的结构，于此相对，css是负责将结构转化为样式。所以请快速在w3chool网站上过一边html的标签，然后将html和css放在一起绑定学习！在初步的学习中，请尽量不要用站内在线编写的功能，这将会把你变得越来越懒惰，很多知识也只是看起来懂了，忘记的时间却很快，所以请将站内的实例代码在你自己的编辑器中敲出来。</li>
+</ul>
+<p><strong>学习成果检验</strong></p>
+<ul>
+<li>能张口就说出class和id的区别</li>
+<li>可以迅速说出10个html常用标签</li>
+<li>可以理解什么是块级元素，什么是行内元素</li>
+</ul>
+</blockquote>
+<h2 id="CSS和HTML的组合学习-50h"><a href="#CSS和HTML的组合学习-50h" class="headerlink" title="CSS和HTML的组合学习(50h)"></a>CSS和HTML的组合学习(50h)</h2><blockquote>
+<p><a href="http://www.w3school.com.cn/css/" target="_blank" rel="external"><strong>请点击我跳转W3school页面进行详细学习CSS</strong></a></p>
+<ul>
+<li>上文已经说过，CSS对结构进行样式的设置，一个站点的页面是否好看，都归功于CSS。所以在学习的过程中，是需要不断联合HTML来学习，通过W3school的各种小例子，相信你会迅速了解到CSS的语法以及作用，剩下的，就是通过实战小项目来了解更多的CSS关键字。</li>
+</ul>
+<p><strong>学习成果检验</strong></p>
+<ul>
+<li>能够理解盒子模型</li>
+<li>十分清楚什么是文档流、position都有哪些参数，和文档流有什么关系</li>
+<li>可以独立的100%还原百度首页及搜索页。</li>
+<li><a href="http://pan.baidu.com/s/1gfFfpPx" target="_blank" rel="external">可以很好的完成该实战项目，请点击我。密码：9evc</a></li>
+</ul>
+</blockquote>
+<h2 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h2><blockquote>
+<p><strong>关于photoshop</strong></p>
+<ul>
+<li>photoshop的切图技能是每个前端人员必须掌握的（和设计人员协作），在本文的《CSS和HTML的组合学习》最后的实战项目中的视频课程有讲解phototshop基本的切图技巧，以及雪碧图的制作。</li>
+</ul>
+<p><strong>关于W3C标准</strong></p>
+<ul>
+<li>其实很多同学在初期花费很长时间来了解W3C到底是个什么东西，其实刚入门的同学无需担心W3C标准究竟有哪些，因为它只是个标准，就像在中国要靠右行驶一样。现在网上的大部分教程都是符合这个标准（当然你要按照教程的书写格式）,在你深入学习之后自然就会了解这个标准了，到时候返回来看看，一切都会豁然开朗。</li>
+<li>附：<a href="http://www.chinaw3c.org/standards.html" target="_blank" rel="external">w3c标准</a></li>
+</ul>
+<p><strong>关于视频教程</strong></p>
+<ul>
+<li><a href="http://pan.baidu.com/s/1hsi7QAw" target="_blank" rel="external">视频教程网盘分享，密码：6hiq</a></li>
+<li>本视频教程可对照该目录进行–&gt;<a href="http://ke.jikexueyuan.com/zhiye/web/" target="_blank" rel="external">http://ke.jikexueyuan.com/zhiye/web/</a></li>
+</ul>
+<p><strong>在下一篇，将会学习如何将你的页面动起来（javascript）</strong></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/other/" rel="tag">#other</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/19/前端入坑指南-1/" rel="next" title="前端入坑指南(1)">
+                <i class="fa fa-chevron-left"></i> 前端入坑指南(1)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/19/前端入坑指南-2/"
+           data-title="前端入坑指南(2)" data-url="http://AirmaZ.github.io/2016/09/19/前端入坑指南-2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="朱宏伟" />
+          <p class="site-author-name" itemprop="name">朱宏伟</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端入坑指南–学会制作静态页面"><span class="nav-number">1.</span> <span class="nav-text">前端入坑指南–学会制作静态页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始前所需要的准备-3h"><span class="nav-number">1.1.</span> <span class="nav-text">开始前所需要的准备(3h)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的学习-20h"><span class="nav-number">1.2.</span> <span class="nav-text">HTML的学习(20h)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS和HTML的组合学习-50h"><span class="nav-number">1.3.</span> <span class="nav-text">CSS和HTML的组合学习(50h)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些注意事项"><span class="nav-number">1.4.</span> <span class="nav-text">一些注意事项</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱宏伟</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hongwei-note"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
