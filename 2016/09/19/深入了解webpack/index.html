@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="朱宏伟的前端小站，前端笔记，前端小站" />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -58,50 +58,14 @@
 
 
 
-<meta name="description" content="目录
-前言
-Webpack安装
-Webpack核心原理
-webpack功能
-开发模式和生产模式
-webpack CLI 和webpack-dev-server
-
-
-相关配置字段解析
-entry
-output
-module &amp;amp; loaders
-plugins
-resolve
-
-
-
-
-前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样">
+<meta name="description" content="前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
+当前现在网上也有很多webpack的讲解，但都是些傻瓜式的配置教程，没有对webpack其中webpack.config.js中的字段进行详细的解释，以至于很多同学只是会只用别人配置好的项目，没有独立diy的能力。所以本文将从we">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入了解webpack">
 <meta property="og:url" content="http://AirmaZ.github.io/2016/09/19/深入了解webpack/index.html">
-<meta property="og:site_name" content="朱宏伟的前端笔记">
-<meta property="og:description" content="目录
-前言
-Webpack安装
-Webpack核心原理
-webpack功能
-开发模式和生产模式
-webpack CLI 和webpack-dev-server
-
-
-相关配置字段解析
-entry
-output
-module &amp;amp; loaders
-plugins
-resolve
-
-
-
-
-前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样">
+<meta property="og:site_name" content="HongWe's Notes">
+<meta property="og:description" content="前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
+当前现在网上也有很多webpack的讲解，但都是些傻瓜式的配置教程，没有对webpack其中webpack.config.js中的字段进行详细的解释，以至于很多同学只是会只用别人配置好的项目，没有独立diy的能力。所以本文将从we">
 <meta property="og:image" content="http://i.imgur.com/AMYCGhZ.png">
 <meta property="og:image" content="http://i.imgur.com/sk32RvT.png">
 <meta property="og:image" content="http://i.imgur.com/U1f6dJ4.png">
@@ -109,29 +73,11 @@ resolve
 <meta property="og:image" content="http://i.imgur.com/JHRGPnt.png">
 <meta property="og:image" content="http://i.imgur.com/pQJGrEz.png">
 <meta property="og:image" content="http://i.imgur.com/tBdakXB.png">
-<meta property="og:updated_time" content="2016-09-19T06:59:44.676Z">
+<meta property="og:updated_time" content="2016-09-19T09:04:41.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入了解webpack">
-<meta name="twitter:description" content="目录
-前言
-Webpack安装
-Webpack核心原理
-webpack功能
-开发模式和生产模式
-webpack CLI 和webpack-dev-server
-
-
-相关配置字段解析
-entry
-output
-module &amp;amp; loaders
-plugins
-resolve
-
-
-
-
-前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样">
+<meta name="twitter:description" content="前言webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
+当前现在网上也有很多webpack的讲解，但都是些傻瓜式的配置教程，没有对webpack其中webpack.config.js中的字段进行详细的解释，以至于很多同学只是会只用别人配置好的项目，没有独立diy的能力。所以本文将从we">
 <meta name="twitter:image" content="http://i.imgur.com/AMYCGhZ.png">
 
 
@@ -155,7 +101,7 @@ resolve
 
   <link rel="canonical" href="http://AirmaZ.github.io/2016/09/19/深入了解webpack/"/>
 
-  <title> 深入了解webpack | 朱宏伟的前端笔记 </title>
+  <title> 深入了解webpack | HongWe's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -186,11 +132,11 @@ resolve
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">朱宏伟的前端笔记</span>
+      <span class="site-title">HongWe's Notes</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">个人学习站</p>
+  <p class="site-subtitle">朱宏伟的前端笔记</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -293,6 +239,25 @@ resolve
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -322,26 +287,7 @@ resolve
       
 
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="# 前言">前言</a></li>
-<li><a href="# Webpack安装">Webpack安装</a></li>
-<li><a href="# Webpack核心原理">Webpack核心原理</a></li>
-<li><a href="# webpack功能">webpack功能</a><ul>
-<li><a href="# 1.开发模式和生产模式">开发模式和生产模式</a></li>
-<li><a href="# 2.webpack CLI 和webpack-dev-server">webpack CLI 和webpack-dev-server</a></li>
-</ul>
-</li>
-<li><a href="# 相关配置字段解析">相关配置字段解析</a><ul>
-<li><a href="# 1.entry">entry</a></li>
-<li><a href="# 2.output">output</a></li>
-<li><a href="# 3.module &amp; loaders">module &amp; loaders</a></li>
-<li><a href="# 4.plugins">plugins</a></li>
-<li><a href="# 5.resolve">resolve</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。</p>
 <p>当前现在网上也有很多webpack的讲解，但都是些傻瓜式的配置教程，没有对webpack其中<code>webpack.config.js</code>中的字段进行详细的解释，以至于很多同学只是会只用别人配置好的项目，没有独立diy的能力。所以本文将从webpack的安装、核心原理、功能说明、配置字段解析这几个大方向来教大家学会如何使用webpack。</p>
 <h2 id="Webpack安装"><a href="#Webpack安装" class="headerlink" title="Webpack安装"></a>Webpack安装</h2><ol>
 <li>Webpack很多功能都依赖于node.js环境，所以在使用webpack前你的电脑上必须要有node.js+npm，至于这两者如何安装配置我就不说了，不在本文讨论范围内，网上有很多现成的教学。</li>
@@ -419,7 +365,27 @@ resolve
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/19/Google前端代码规范-HTML-CSS/" rel="prev" title="Google前端代码规范(HTML/CSS)">
+                Google前端代码规范(HTML/CSS) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -488,13 +454,27 @@ resolve
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -520,7 +500,7 @@ resolve
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack安装"><span class="nav-number">3.</span> <span class="nav-text">Webpack安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack核心原理"><span class="nav-number">4.</span> <span class="nav-text">Webpack核心原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack功能"><span class="nav-number">5.</span> <span class="nav-text">webpack功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开发模式和生产模式"><span class="nav-number">5.1.</span> <span class="nav-text">1.开发模式和生产模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-webpack-CLI-和webpack-dev-server"><span class="nav-number">5.2.</span> <span class="nav-text">2.webpack CLI 和webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Webpack-CLI（有利于生产模式下打包）"><span class="nav-number">5.2.0.1.</span> <span class="nav-text">Webpack CLI（有利于生产模式下打包）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack-dev-server（有利于在开发模式下编译）"><span class="nav-number">5.2.0.2.</span> <span class="nav-text">webpack-dev-server（有利于在开发模式下编译）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关配置字段解析"><span class="nav-number">6.</span> <span class="nav-text">相关配置字段解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-entry"><span class="nav-number">6.1.</span> <span class="nav-text">1.entry</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：数组类型"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">enter：数组类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：对象"><span class="nav-number">6.1.0.2.</span> <span class="nav-text">enter：对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：混合类型"><span class="nav-number">6.1.0.3.</span> <span class="nav-text">enter：混合类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-output"><span class="nav-number">6.2.</span> <span class="nav-text">2.output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-module-amp-loaders"><span class="nav-number">6.3.</span> <span class="nav-text">3.module & loaders</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#module"><span class="nav-number">6.3.0.1.</span> <span class="nav-text">module</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#loaders"><span class="nav-number">6.3.0.2.</span> <span class="nav-text">loaders</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-plugins"><span class="nav-number">6.4.</span> <span class="nav-text">4.plugins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-resolve"><span class="nav-number">6.5.</span> <span class="nav-text">5.resolve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">7.</span> <span class="nav-text">结束</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack安装"><span class="nav-number">2.</span> <span class="nav-text">Webpack安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack核心原理"><span class="nav-number">3.</span> <span class="nav-text">Webpack核心原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack功能"><span class="nav-number">4.</span> <span class="nav-text">webpack功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开发模式和生产模式"><span class="nav-number">4.1.</span> <span class="nav-text">1.开发模式和生产模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-webpack-CLI-和webpack-dev-server"><span class="nav-number">4.2.</span> <span class="nav-text">2.webpack CLI 和webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Webpack-CLI（有利于生产模式下打包）"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">Webpack CLI（有利于生产模式下打包）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack-dev-server（有利于在开发模式下编译）"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">webpack-dev-server（有利于在开发模式下编译）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关配置字段解析"><span class="nav-number">5.</span> <span class="nav-text">相关配置字段解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-entry"><span class="nav-number">5.1.</span> <span class="nav-text">1.entry</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：数组类型"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">enter：数组类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：对象"><span class="nav-number">5.1.0.2.</span> <span class="nav-text">enter：对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#enter：混合类型"><span class="nav-number">5.1.0.3.</span> <span class="nav-text">enter：混合类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-output"><span class="nav-number">5.2.</span> <span class="nav-text">2.output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-module-amp-loaders"><span class="nav-number">5.3.</span> <span class="nav-text">3.module & loaders</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#module"><span class="nav-number">5.3.0.1.</span> <span class="nav-text">module</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#loaders"><span class="nav-number">5.3.0.2.</span> <span class="nav-text">loaders</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-plugins"><span class="nav-number">5.4.</span> <span class="nav-text">4.plugins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-resolve"><span class="nav-number">5.5.</span> <span class="nav-text">5.resolve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">6.</span> <span class="nav-text">结束</span></a></li></ol></div>
             
           </div>
         </section>
