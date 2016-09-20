@@ -1,0 +1,624 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。
+在兼容性上，flex目前已经支持了所有的浏览器（IE 10+,chrome 21+，firefox 22+等），可以说是日后主流的布局解决方案。不过使用flex布局后，会导致一些冲突的css失效。
+container和items在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLEX布局探索">
+<meta property="og:url" content="http://AirmaZ.github.io/2016/09/20/FLEX布局探索/index.html">
+<meta property="og:site_name" content="HongWei's Notes">
+<meta property="og:description" content="前言以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。
+在兼容性上，flex目前已经支持了所有的浏览器（IE 10+,chrome 21+，firefox 22+等），可以说是日后主流的布局解决方案。不过使用flex布局后，会导致一些冲突的css失效。
+container和items在">
+<meta property="og:image" content="http://i.imgur.com/cwPZdIU.jpg">
+<meta property="og:image" content="http://i.imgur.com/LTHqFPi.jpg">
+<meta property="og:updated_time" content="2016-09-20T07:13:44.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FLEX布局探索">
+<meta name="twitter:description" content="前言以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。
+在兼容性上，flex目前已经支持了所有的浏览器（IE 10+,chrome 21+，firefox 22+等），可以说是日后主流的布局解决方案。不过使用flex布局后，会导致一些冲突的css失效。
+container和items在">
+<meta name="twitter:image" content="http://i.imgur.com/cwPZdIU.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://AirmaZ.github.io/2016/09/20/FLEX布局探索/"/>
+
+  <title> FLEX布局探索 | HongWei's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HongWei's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">朱宏伟的前端笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                FLEX布局探索
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T15:12:51+08:00" content="2016年09月20日">
+              2016年09月20日
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/FLEX布局探索/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/FLEX布局探索/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。</p>
+<p>在兼容性上，flex目前已经支持了所有的浏览器（IE 10+,chrome 21+，firefox 22+等），可以说是日后主流的布局解决方案。不过使用flex布局后，会导致一些冲突的css失效。</p>
+<h2 id="container和items"><a href="#container和items" class="headerlink" title="container和items"></a>container和items</h2><p>在flex中，设置了<code>display：flex；</code>的容器将作为flex项目容器，我叫它container，而container中的子容器我称它们为item。item也可以设置<code>display：flex</code>来作为container形成嵌套。</p>
+<h4 id="container相关属性"><a href="#container相关属性" class="headerlink" title="container相关属性"></a>container相关属性</h4><ul>
+<li>flex-direction （items的排列方向）</li>
+<li>flex-wrap （items的换行方式）</li>
+<li>flex-flow （flex-direction和flex-wrap的缩写）</li>
+<li>justify-content （主轴对齐方式）</li>
+<li>align-items （items交叉轴对齐方式）</li>
+<li>align-content （多轴线对齐方式）</li>
+</ul>
+<h4 id="items相关属性"><a href="#items相关属性" class="headerlink" title="items相关属性"></a>items相关属性</h4><ul>
+<li>order (自身的排序)</li>
+<li>flex-grow （自身的放大比例）</li>
+<li>flex-shrink （自身的缩小比例）</li>
+<li>flex-basis （占用主轴的空间）</li>
+<li>flex （“grow”、“shrink”、“basis”的缩写）</li>
+<li>align-self （单独定义的交叉轴对齐方式）</li>
+</ul>
+<h2 id="基于FLEX的响应式布局"><a href="#基于FLEX的响应式布局" class="headerlink" title="基于FLEX的响应式布局"></a>基于FLEX的响应式布局</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="http://i.imgur.com/cwPZdIU.jpg" alt="桌面端"><br><img src="http://i.imgur.com/LTHqFPi.jpg" alt="移动端"></p>
+<h4 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">    <span class="attribute">background-color</span>: cadetblue;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">2px</span> <span class="number">2px</span> <span class="number">10px</span> black;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">flex-direction</span>: row;</div><div class="line">    <span class="attribute">flex-wrap</span>: wrap;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: flex-start;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">600px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.header</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#b44141</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.body</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">80%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#6a8759</span>;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">flex-wrap</span>: wrap;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.footer</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#94972e</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">769px</span>) &#123;</div><div class="line">    <span class="selector-class">.left</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.content</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">5</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#afafaf</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.right</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">768px</span>) &#123;</div><div class="line">    <span class="selector-class">.left</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#94972e</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.content</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">80%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#afafaf</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.right</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/19/前端入坑指南-2/" rel="next" title="前端入坑指南(2)">
+                <i class="fa fa-chevron-left"></i> 前端入坑指南(2)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/20/FLEX布局探索/"
+           data-title="FLEX布局探索" data-url="http://AirmaZ.github.io/2016/09/20/FLEX布局探索/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="朱宏伟" />
+          <p class="site-author-name" itemprop="name">朱宏伟</p>
+          <p class="site-description motion-element" itemprop="description">疯疯癫癫的学前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#container和items"><span class="nav-number">2.</span> <span class="nav-text">container和items</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#container相关属性"><span class="nav-number">2.0.1.</span> <span class="nav-text">container相关属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items相关属性"><span class="nav-number">2.0.2.</span> <span class="nav-text">items相关属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于FLEX的响应式布局"><span class="nav-number">3.</span> <span class="nav-text">基于FLEX的响应式布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#效果图"><span class="nav-number">3.0.1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML代码"><span class="nav-number">3.0.2.</span> <span class="nav-text">HTML代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS代码"><span class="nav-number">3.0.3.</span> <span class="nav-text">CSS代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">4.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱宏伟</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hongwei-note"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
