@@ -170,6 +170,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -278,31 +288,14 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前布局采用的解决方案都是css盒模型布局，其中包涵了各种奇怪的技巧，例如不定高的盒子居中等等不容易实现，而flex布局可以轻易实现我们以前需要大费周章的布局需求。</p>
 <p>在兼容性上，flex目前已经支持了所有的浏览器（IE 10+,chrome 21+，firefox 22+等），可以说是日后主流的布局解决方案。不过使用flex布局后，会导致一些冲突的css失效。</p>
 <h2 id="container和items"><a href="#container和items" class="headerlink" title="container和items"></a>container和items</h2><p>在flex中，设置了<code>display：flex；</code>的容器将作为flex项目容器，我叫它container，而container中的子容器我称它们为item。item也可以设置<code>display：flex</code>来作为container形成嵌套。</p>
-<h4 id="container相关属性"><a href="#container相关属性" class="headerlink" title="container相关属性"></a>container相关属性</h4><ul>
-<li>flex-direction （items的排列方向）</li>
-<li>flex-wrap （items的换行方式）</li>
-<li>flex-flow （flex-direction和flex-wrap的缩写）</li>
-<li>justify-content （主轴对齐方式）</li>
-<li>align-items （items交叉轴对齐方式）</li>
-<li>align-content （多轴线对齐方式）</li>
-</ul>
-<h4 id="items相关属性"><a href="#items相关属性" class="headerlink" title="items相关属性"></a>items相关属性</h4><ul>
-<li>order (自身的排序)</li>
-<li>flex-grow （自身的放大比例）</li>
-<li>flex-shrink （自身的缩小比例）</li>
-<li>flex-basis （占用主轴的空间）</li>
-<li>flex （“grow”、“shrink”、“basis”的缩写）</li>
-<li>align-self （单独定义的交叉轴对齐方式）</li>
-</ul>
-<h2 id="基于FLEX的响应式布局"><a href="#基于FLEX的响应式布局" class="headerlink" title="基于FLEX的响应式布局"></a>基于FLEX的响应式布局</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="http://i.imgur.com/cwPZdIU.jpg" alt="桌面端"><br><img src="http://i.imgur.com/LTHqFPi.jpg" alt="移动端"></p>
-<h4 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">    <span class="attribute">background-color</span>: cadetblue;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">2px</span> <span class="number">2px</span> <span class="number">10px</span> black;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">flex-direction</span>: row;</div><div class="line">    <span class="attribute">flex-wrap</span>: wrap;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: flex-start;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">600px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.header</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#b44141</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.body</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">80%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#6a8759</span>;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">flex-wrap</span>: wrap;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.footer</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#94972e</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">769px</span>) &#123;</div><div class="line">    <span class="selector-class">.left</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.content</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">5</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#afafaf</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.right</span>&#123;</div><div class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">768px</span>) &#123;</div><div class="line">    <span class="selector-class">.left</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#94972e</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.content</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">80%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#afafaf</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.right</span>&#123;</div><div class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">10%</span>;</div><div class="line">        <span class="attribute">background-color</span>: <span class="number">#204040</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/20/FLEX布局探索/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -419,73 +412,16 @@
 
       
         
-          
-            <h1 id="前端入坑指南–学会制作静态页面"><a href="#前端入坑指南–学会制作静态页面" class="headerlink" title="前端入坑指南–学会制作静态页面"></a>前端入坑指南–学会制作静态页面</h1><p>朱宏伟</p>
+          <h1 id="前端入坑指南–学会制作静态页面"><a href="#前端入坑指南–学会制作静态页面" class="headerlink" title="前端入坑指南–学会制作静态页面"></a>前端入坑指南–学会制作静态页面</h1><p>朱宏伟</p>
 <hr>
 <p> 本文供一些纠结要不要入门前端的同学观看。另本人水平有限，<br> 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。<br> 本篇学习完成后，你大概已经完成了前端入门的30%的内容。</p>
 <hr>
-<h2 id="开始前所需要的准备-3h"><a href="#开始前所需要的准备-3h" class="headerlink" title="开始前所需要的准备(3h)"></a>开始前所需要的准备(3h)</h2><blockquote>
-<p><strong>配置要求</strong></p>
-<ul>
-<li>前端开发估计是所有开发中要求平台配置最低的了，在windows平台下你甚至只需要2GB的内存，随便一颗cpu芯片就可以开始前端的学习之路。但考虑到你可能会使用到photoshop以及chrome等辅助工具，建议使用一台4GB以上、i5以上的cpu芯片来开发(windows平台、其他平台可参考)</li>
-</ul>
-<p><strong>编辑器</strong></p>
-<ul>
-<li>前端并不用配置额外的环境，只需要一个编辑器即可（没有后台的情况下）。在此我推荐三个主流的编辑器供大家选择，大家根据自己的需求来选用（随便选择，不需要在此过于纠结）</li>
-<li><a href="http://www.jetbrains.com/webstorm/" target="_blank" rel="external">webstorm</a>（集成了大部分开发者所需要的插件，十分方便，安装好即可食用，无需多余的插件管理。缺点：收费/可能更吃系统资源。<a href="http://www.gbtags.com/gb/share/2627.htm" target="_blank" rel="external">入门指南</a>）</li>
-<li><a href="http://www.sublimetext.com/" target="_blank" rel="external">sublime</a>（轻巧、响应速度快，扩展性十分强大，重点是免费好么！是目前前端开发中使用最多的编辑器之一，拥有赏心悦目的UI。<a href="http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html" target="_blank" rel="external">入门指南</a>）</li>
-<li><a href="https://atom.io/" target="_blank" rel="external">atom</a>（完全免费并开源，支持三大平台，拥有十分强大的扩展性。和git完美结合，但对于新手来说，和sublime区别不大，请各位看着谁舒服用谁。<a href="https://atom-china.org/t/atom/62" target="_blank" rel="external">入门指南</a>）</li>
-</ul>
-<p><strong>其他准备</strong></p>
-<ul>
-<li>chrome浏览器 firefox浏览器 （主要是用这两个控制台调试代码）</li>
-<li><a href="http://tieba.baidu.com/p/3153086220" target="_blank" rel="external">photoshop</a></li>
-</ul>
-</blockquote>
-<h2 id="HTML的学习-20h"><a href="#HTML的学习-20h" class="headerlink" title="HTML的学习(20h)"></a>HTML的学习(20h)</h2><blockquote>
-<p><a href="http://www.w3school.com.cn/html/" target="_blank" rel="external"><strong>请点击我跳转W3school页面进行详细学习HTML</strong></a></p>
-<ul>
-<li>html是负责编写页面的结构，于此相对，css是负责将结构转化为样式。所以请快速在w3chool网站上过一边html的标签，然后将html和css放在一起绑定学习！在初步的学习中，请尽量不要用站内在线编写的功能，这将会把你变得越来越懒惰，很多知识也只是看起来懂了，忘记的时间却很快，所以请将站内的实例代码在你自己的编辑器中敲出来。</li>
-</ul>
-<p><strong>学习成果检验</strong></p>
-<ul>
-<li>能张口就说出class和id的区别</li>
-<li>可以迅速说出10个html常用标签</li>
-<li>可以理解什么是块级元素，什么是行内元素</li>
-</ul>
-</blockquote>
-<h2 id="CSS和HTML的组合学习-50h"><a href="#CSS和HTML的组合学习-50h" class="headerlink" title="CSS和HTML的组合学习(50h)"></a>CSS和HTML的组合学习(50h)</h2><blockquote>
-<p><a href="http://www.w3school.com.cn/css/" target="_blank" rel="external"><strong>请点击我跳转W3school页面进行详细学习CSS</strong></a></p>
-<ul>
-<li>上文已经说过，CSS对结构进行样式的设置，一个站点的页面是否好看，都归功于CSS。所以在学习的过程中，是需要不断联合HTML来学习，通过W3school的各种小例子，相信你会迅速了解到CSS的语法以及作用，剩下的，就是通过实战小项目来了解更多的CSS关键字。</li>
-</ul>
-<p><strong>学习成果检验</strong></p>
-<ul>
-<li>能够理解盒子模型</li>
-<li>十分清楚什么是文档流、position都有哪些参数，和文档流有什么关系</li>
-<li>可以独立的100%还原百度首页及搜索页。</li>
-<li><a href="http://pan.baidu.com/s/1gfFfpPx" target="_blank" rel="external">可以很好的完成该实战项目，请点击我。密码：9evc</a></li>
-</ul>
-</blockquote>
-<h2 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h2><blockquote>
-<p><strong>关于photoshop</strong></p>
-<ul>
-<li>photoshop的切图技能是每个前端人员必须掌握的（和设计人员协作），在本文的《CSS和HTML的组合学习》最后的实战项目中的视频课程有讲解phototshop基本的切图技巧，以及雪碧图的制作。</li>
-</ul>
-<p><strong>关于W3C标准</strong></p>
-<ul>
-<li>其实很多同学在初期花费很长时间来了解W3C到底是个什么东西，其实刚入门的同学无需担心W3C标准究竟有哪些，因为它只是个标准，就像在中国要靠右行驶一样。现在网上的大部分教程都是符合这个标准（当然你要按照教程的书写格式）,在你深入学习之后自然就会了解这个标准了，到时候返回来看看，一切都会豁然开朗。</li>
-<li>附：<a href="http://www.chinaw3c.org/standards.html" target="_blank" rel="external">w3c标准</a></li>
-</ul>
-<p><strong>关于视频教程</strong></p>
-<ul>
-<li><a href="http://pan.baidu.com/s/1hsi7QAw" target="_blank" rel="external">视频教程网盘分享，密码：6hiq</a></li>
-<li>本视频教程可对照该目录进行–&gt;<a href="http://ke.jikexueyuan.com/zhiye/web/" target="_blank" rel="external">http://ke.jikexueyuan.com/zhiye/web/</a></li>
-</ul>
-<p><strong>在下一篇，将会学习如何将你的页面动起来（javascript）</strong></p>
-</blockquote>
-
-          
+<h2 id="开始前所需要的准备-3h"><a href="#开始前所需要的准备-3h" class="headerlink" title="开始前所需要的准备(3h)"></a>开始前所需要的准备(3h)</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/19/前端入坑指南-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -602,8 +538,7 @@
 
       
         
-          
-            <h1 id="前端入坑指南–前端难不难？"><a href="#前端入坑指南–前端难不难？" class="headerlink" title="前端入坑指南–前端难不难？"></a>前端入坑指南–前端难不难？</h1><p>朱宏伟</p>
+          <h1 id="前端入坑指南–前端难不难？"><a href="#前端入坑指南–前端难不难？" class="headerlink" title="前端入坑指南–前端难不难？"></a>前端入坑指南–前端难不难？</h1><p>朱宏伟</p>
 <hr>
 <p> 本文供一些纠结要不要入门前端的同学观看。另本人水平有限，<br> 又加上这是一篇小白向的指南，难免有不严谨的地方，如有疏漏请大力批评。</p>
 <hr>
@@ -613,32 +548,12 @@
 <li><h6 id="学习前端难不难？"><a href="#学习前端难不难？" class="headerlink" title="学习前端难不难？"></a>学习前端难不难？</h6></li>
 <li><h6 id="我要学习多久才能入门？"><a href="#我要学习多久才能入门？" class="headerlink" title="我要学习多久才能入门？"></a>我要学习多久才能入门？</h6></li>
 </ol>
-<p>下面来回答这两个问题:</p>
-<ol>
-<li>学习前端难不难？<ul>
-<li>难不难这个问题标准答案都是因人而异，根据个人的努力程度不同，奋斗的结果自然不同。但是我并不想说这种摸棱两可的回答，我只想说：前端技术入门非常简单！简单到在入门初期你甚至毫无逻辑能力都可以进行基础的前端工作（静态页面）。作为前端技术的大三核心：html / css / javascript，每一样都是我见过语言中入门最简单的。html和css甚至不是一门编程语言，html是一门标记语言，跟写word一样，而css我则称它是英语，什么？你告诉我你不会英语？我会告诉你css常用的词汇不过几百？前端入门简单的地方大部分都归功于html和css，你甚至只需要花一周不到的时间就可以掌握它们。</li>
-</ul>
-</li>
-<li>我要学习多久才能入门？<ul>
-<li>先定义什么是入门，我认为掌握html和css的前提下，并且能够使用js+jquery临摹出网易新闻主页，并能掌握1-2个其他js库或相关技术，这样的水平可以认为是入门。同样，我在这里给个明确的答案：如果你不傻，并且每天保持5个小时的学习时间的话，应该90天左右就可以找到一份入门的前端工作了。也就是5x90=450小时左右。怎么样？打LOL是不是不知不觉1000+小时就没有了，而450个小时可以让你找到吃饭的饭碗。</li>
-</ul>
-</li>
-</ol>
 </blockquote>
-<h2 id="前端知识体系"><a href="#前端知识体系" class="headerlink" title="前端知识体系"></a>前端知识体系</h2><blockquote>
-<p>当然前言中我说学习前端很容易的说法其实有点不负责任，因为前端虽然可以让你快速入门，但是后续的学习难度却十分陡峭，所以说前端也是个很容易掉坑里的岗位。这后续难度主要归功于前端浏览设备的不统一，以及各类繁多的库/插件，给人造成一种前端知识是杂乱无序的感觉：<br> <img src="http://i.imgur.com/sbjQCxp.png" alt=""></p>
-<ul>
-<li>HTML:超文本标记语言，主要用来搭建页面的结构。就像毛坯房</li>
-<li>CSS：层叠样式表，主要用来给页面增加样式。就像给毛坯房装修</li>
-<li>javascript：直译式脚本语言，负责给页面增加交互效果。就像智能家居一样，白天能够自动拉窗帘。</li>
-<li>photoshop：不解释，很常用的一款图片编辑软件。</li>
-<li>fireBug：firefox的调试工具，因为javascript是解释型编程语言，所以可以在浏览器中直接调试，也用来用来调试html和css。同类型调试工具的推荐chrome控制台。</li>
-<li>jQuery：基于javascript的库，封装一些常用的方法。就像建房子不用自己烧砖头，直接买现成的砖头就好。当然，jQuery是免费的开源库。</li>
-</ul>
-<p>看的很晕对不对？但实际上有很多只是工具的使用，就像你用word一样，真正入门需要关注的，就是我在图中用红圈标注出来的部分，是不是感觉信心大增？而在这几部分中，最终我们所重点学习的还是html / css / javascript 这三大核心技能,在你逐渐深入学习前端技术后，会不知不觉的掌握一些周边的软技能。在接下来的几篇，我将为您规划一下前端学习的路线，以及各个知识段的时间划分，可以让你时刻了解到自己离入门还有多远。</p>
-</blockquote>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/19/前端入坑指南-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -755,8 +670,7 @@
 
       
         
-          
-            <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+          <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><a href="#通用样式规则">通用样式规则</a><ul>
 <li><a href="#协议">协议</a></li>
 </ul>
@@ -811,369 +725,11 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="通用样式规则"><a href="#通用样式规则" class="headerlink" title="通用样式规则"></a>通用样式规则</h2><h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><blockquote>
-<p>省略协议部分(http、https)，再引入其他文件（图像、媒体文件等）一般省略其协议名称，除非相应的文件用了两个不同的协议。这样可以轻微的节省文件的大小，以及混淆代码所带来的一些问题。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;script src=&quot;https://www.google.com/js/gweb/analytics/autotrack.js&quot;&gt;&lt;/script&gt;
-&lt;!-- 推荐 --&gt;
-&lt;script src=&quot;//www.google.com/js/gweb/analytics/autotrack.js&quot;&gt;&lt;/script&gt;
-/* 不推荐 */
-.example {
-  background: url(https://www.google.com/images/example);
-}
-/* 推荐 */
-.example {
-  background: url(//www.google.com/images/example);
-}
-</code></pre>
-
-</blockquote>
-<h2 id="通用格式规则"><a href="#通用格式规则" class="headerlink" title="通用格式规则"></a>通用格式规则</h2><h4 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h4><blockquote>
-<p>通过两个空格来缩进，不推荐用制表符或者制表符空格混用的方式。</p>
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Fantastic
-  &lt;li&gt;Great
-&lt;/ul&gt;
-</code></pre><pre><code>
-.example {
-  color: blue;
-}</code></pre>
-
-</blockquote>
-<h4 id="大写"><a href="#大写" class="headerlink" title="大写"></a>大写</h4><blockquote>
-<p>仅仅使用小写字母,这包括：html的名称、属性、属性值（除非 text/CDATA），css选择器、属性、属性值等（除了一些字符串）</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;A HREF=&quot;/&quot;&gt;Home&lt;/A&gt;
-&lt;!-- 推荐 --&gt;
-&lt;img src=&quot;google.png&quot; alt=&quot;Google&quot;&gt;
-/* 不推荐 */
-color: #E5E5E5;
-/* 推荐 */
-color: #e5e5e5;</code></pre>
-
-
-</blockquote>
-<h4 id="尾部空白"><a href="#尾部空白" class="headerlink" title="尾部空白"></a>尾部空白</h4><blockquote>
-<p>不要再代码的尾部留空白，比如空格。这样会造成文件对比会比较复杂。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;p&gt;What?_
-&lt;!-- 推荐 --&gt;
-&lt;p&gt;Yes please.</code></pre>
-
-</blockquote>
-<h2 id="通用METE规则"><a href="#通用METE规则" class="headerlink" title="通用METE规则"></a>通用METE规则</h2><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><blockquote>
-<p>一般使用UTF-8编码，通过<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>来设定编码，而不需要指定样式表的编码了。<br>更多关于编码的使用请点击这里–&gt;<a href="https://www.w3.org/International/tutorials/tutorial-char-enc/" title="点我" target="_blank" rel="external">https://www.w3.org/International/tutorials/tutorial-char-enc/</a></p>
-</blockquote>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><blockquote>
-<p>根据需要，或者说在大多数情况下，你都需要注释你的代码：解释代码段的目的，服务于那些内容，或者解释代码的使用方法等等。良好代码注释为别人带来更多的可读性。</p>
-</blockquote>
-<h4 id="代办项目"><a href="#代办项目" class="headerlink" title="代办项目"></a>代办项目</h4><blockquote>
-<p>使用关键字高亮的方式来标记一个ToDo，使用一个括号来标记一个联系人（姓名或者邮箱）。使用冒号来记录具体代码项目的内容：</p>
-<pre><code>
-&lt;center&gt;Test&lt;/center&gt;</code></pre><pre><code>
-&lt;!-- TODO: 删除一些标签 --&gt;
-&lt;ul&gt;
-  &lt;li&gt;Apples&lt;/li&gt;
-  &lt;li&gt;Oranges&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
-</blockquote>
-<h2 id="HTML样式规则"><a href="#HTML样式规则" class="headerlink" title="HTML样式规则"></a>HTML样式规则</h2><h4 id="Document-Type"><a href="#Document-Type" class="headerlink" title="Document Type"></a>Document Type</h4><blockquote>
-<p>推荐使用HTML5。使用<code>&lt;!DOCTYPE html&gt;</code>来进行声明。<br>虽然我们推荐使用html，但是尽量不要使用XHTML，因为XHTML在浏览器的支持上并不友好。<br>虽然无关HTML，但是建议尽量不要闭合空标签：书写<code>&lt;br&gt;</code>，而不是<code>&lt;br/&gt;</code>。</p>
-</blockquote>
-<h4 id="html的有效性"><a href="#html的有效性" class="headerlink" title="html的有效性"></a>html的有效性</h4><blockquote>
-<p>使用有效的html代码，除非一切特殊场合：模板等等。如果有必要，请使用一些工具来验证html的有效性比如<a href="https://validator.w3.org/nu/" title=" W3C HTML validator" target="_blank" rel="external">W3C HTML validator</a></p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;title&gt;Test&lt;/title&gt;
-&lt;article&gt;This is only a test.</code></pre><pre><code>
-&lt;!-- 推荐 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;title&gt;Test&lt;/title&gt;
-&lt;article&gt;This is only a test.&lt;/article&gt;</code></pre>
-
-</blockquote>
-<h4 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h4><blockquote>
-<p>如有可能请尽量使用带有语义的标签，如<code>&lt;a&gt;</code>表示一个链接，<code>&lt;buttom&gt;</code>表示一个按钮，而不是用没有语义的<code>&lt;div&gt;</code>去实现它们。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;div onclick=&quot;goToRecommendations();&quot;&gt;All recommendations&lt;/div&gt;
-&lt;!-- 推荐 --&gt;
-&lt;a href=&quot;recommendations/&quot;&gt;All recommendations&lt;/a&gt;</code></pre>
-
-</blockquote>
-<h4 id="媒体回退"><a href="#媒体回退" class="headerlink" title="媒体回退"></a>媒体回退</h4><blockquote>
-<p>对于多媒体的展示，如图像或者视频，请务必提供一些替代访问的内容（如alt），这将在用户无法显示你所给定媒体的时候告知用户这是哪方面的内容，在另一些场景中这将有助于盲人能够正常理解网页内容。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;img src=&quot;spreadsheet.png&quot;&gt;
-&lt;!-- 推荐 --&gt;
-&lt;img src=&quot;spreadsheet.png&quot; alt=&quot;Spreadsheet screenshot.&quot;&gt;</code></pre>
-
-</blockquote>
-<h4 id="关注点分离"><a href="#关注点分离" class="headerlink" title="关注点分离"></a>关注点分离</h4><blockquote>
-<p>严格遵守结构、样式、脚本分离的代码风格，并且试图让这三者之间的耦合性降低。也就是说一切的html尽量只服务于结构，而css只服务于展现样式，交互则交付于javascript。这样有利于增加代码的可读性，并且让代码的维护工作变得更加简单。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;title&gt;HTML sucks&lt;/title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;base.css&quot; media=&quot;screen&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;grid.css&quot; media=&quot;screen&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;print.css&quot; media=&quot;print&quot;&gt;
-&lt;h1 style=&quot;font-size: 1em;&quot;&gt;HTML sucks&lt;/h1&gt;
-&lt;p&gt;I’ve read about this on a few sites but now I’m sure:
-  &lt;u&gt;HTML is stupid!!1&lt;/u&gt;
-&lt;center&gt;I can’t believe there’s no way to control the styling of
-  my website without doing everything all over again!&lt;/center&gt;</code></pre>
-<pre><code>&lt;!-- 推荐 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;title&gt;My first CSS-only redesign&lt;/title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;default.css&quot;&gt;
-&lt;h1&gt;My first CSS-only redesign&lt;/h1&gt;
-&lt;p&gt;I’ve read about this on a few sites but today I’m actually
-  doing it: separating concerns and avoiding anything in the HTML of
-  my website that is presentational.
-&lt;p&gt;It’s awesome!</code></pre>
-
-
-</blockquote>
-<h4 id="实体引用"><a href="#实体引用" class="headerlink" title="实体引用"></a>实体引用</h4><blockquote>
-<p>如果你的项目或者团队之间用的都是“UTF-8”的编码，那么如果没有必要，则尽量不使用实体。除非一些拥有额外意义的符号，如<code>&lt;</code>、<code>&amp;</code>之类的。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
-&lt;!-- 推荐 --&gt;
-The currency symbol for the Euro is “€”.</code></pre>
-
-</blockquote>
-<h4 id="可选标签"><a href="#可选标签" class="headerlink" title="可选标签"></a>可选标签</h4><blockquote>
-<p>出于优化文件大小以及SEO优化的考虑，可以省略可选标签。你可以在<a href="https://whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission" target="_blank" rel="external">html5规范</a>中查看新增了哪些可被忽略的标签。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Spending money, spending bytes&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;Sic.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre><pre><code>
-&lt;!-- 推荐 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;title&gt;Saving money, saving bytes&lt;/title&gt;
-&lt;p&gt;Qed.</code></pre>
-
-
-</blockquote>
-<h4 id="type属性"><a href="#type属性" class="headerlink" title="type属性"></a>type属性</h4><blockquote>
-<p>在引用css或者javascript的时候，请省略type的声明，除非你使用的是其他的文件。在html5了，引用css或者js已经不需要为type指定默认值了。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;//www.google.com/css/maia.css&quot;
-  type=&quot;text/css&quot;&gt;
-&lt;!-- 推荐 --&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;//www.google.com/css/maia.css&quot;&gt;
-&lt;!-- 不推荐 --&gt;
-&lt;script src=&quot;//www.google.com/js/gweb/analytics/autotrack.js&quot;
-  type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;!-- 推荐 --&gt;
-&lt;script src=&quot;//www.google.com/js/gweb/analytics/autotrack.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-</blockquote>
-<h2 id="HTML格式规则"><a href="#HTML格式规则" class="headerlink" title="HTML格式规则"></a>HTML格式规则</h2><h4 id="通用格式"><a href="#通用格式" class="headerlink" title="通用格式"></a>通用格式</h4><blockquote>
-<p>对于块级元素、列表或者表格，你应该新起一行来书写它们。对于这些元素的子元素，应该采用缩进的写法。如果li元素内还包含子元素的话，是可以接受把他们都写在同一行。</p>
-<pre><code>&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
-&lt;/blockquote&gt;</code></pre>
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Moe
-  &lt;li&gt;Larry
-  &lt;li&gt;Curly
-&lt;/ul&gt;</code></pre>
-<pre><code>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th scope=&quot;col&quot;&gt;Income
-      &lt;th scope=&quot;col&quot;&gt;Taxes
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;$ 5.00
-      &lt;td&gt;$ 4.50
-&lt;/table&gt;</code></pre>
-
-</blockquote>
-<h4 id="html中的引号"><a href="#html中的引号" class="headerlink" title="html中的引号"></a>html中的引号</h4><blockquote>
-<p>在html中，如果属性需要引用值得时候，应该采用双引号，而不是单引号。</p>
-<pre><code>&lt;!-- 不推荐 --&gt;
-&lt;a class=&#x27;maia-button maia-button-secondary&#x27;&gt;Sign in&lt;/a&gt;
-&lt;!-- 推荐 --&gt;
-&lt;a class=&quot;maia-button maia-button-secondary&quot;&gt;Sign in&lt;/a&gt;</code></pre>
-
-</blockquote>
-<h2 id="css样式规则"><a href="#css样式规则" class="headerlink" title="css样式规则"></a>css样式规则</h2><h4 id="css的有效性"><a href="#css的有效性" class="headerlink" title="css的有效性"></a>css的有效性</h4><blockquote>
-<p>尽量使css代码是有效的，删除掉那些无效的css代码，尽管你觉得无效的css不会造成什么影响。除非是一些特殊的语法。 如果有必要，使用<a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="external">W3C CSS validator</a>来测试你的css代码。</p>
-</blockquote>
-<h4 id="id和class的命名"><a href="#id和class的命名" class="headerlink" title="id和class的命名"></a>id和class的命名</h4><blockquote>
-<p>在id或者class命名的时候请尽量使其保持语义，能够反映出所属元素的功能。不要使用一些神秘或者随机的字符来命名，尽量不要使用拼音来命名。在兄弟元素或者功能相似的元素上，彼此的命名应该是有联系的。如果能够培养出固定的命名风格的话会让代码的语义更加良好。</p>
-<p><code>#gallery {}</code><br><code>#login {}</code></p>
-<p><code>.video {}</code><br><code>.aux {}</code><br><code>.alt {}</code></p>
-</blockquote>
-<h4 id="id和class名称样式"><a href="#id和class名称样式" class="headerlink" title="id和class名称样式"></a>id和class名称样式</h4><blockquote>
-<p>id和class的名称应该尽可能的简短，并有利于阅读者理解。</p>
-<p><code>#nav {}</code></p>
-<p><code>.author {}</code></p>
-</blockquote>
-<h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><blockquote>
-<p>如果可以的话尽可能的直接选择元素，而不是通过父级元素来查找，这样会造成性能的问题</p>
-<p><code>/* 不推荐 */ul#example {}  div.error {}</code></p>
-<p><code>/* 推荐 */#example {}  .error {}</code></p>
-</blockquote>
-<h4 id="简写属性"><a href="#简写属性" class="headerlink" title="简写属性"></a>简写属性</h4><blockquote>
-<p>尽可能的简写属性，减少代码量，为阅读带来便利。</p>
-<pre><code>/* 不推荐 */
-border-top-style: none;
-font-family: palatino, georgia, serif;
-font-size: 100%;
-line-height: 1.6;
-padding-bottom: 2em;
-padding-left: 1em;
-padding-right: 1em;
-padding-top: 0;</code></pre><pre><code>
-/* 推荐 */
-border-top: 0;
-font: 100%/1.6 palatino, georgia, serif;
-padding: 0 1em 2em;</code></pre>
-
-</blockquote>
-<h4 id="省略0后面的单位"><a href="#省略0后面的单位" class="headerlink" title="省略0后面的单位"></a>省略0后面的单位</h4><blockquote>
-<p>在写属性值的时候，请省略0后面的单位：<br><code>margin: 0;
-padding: 0;</code></p>
-</blockquote>
-<h4 id="第一位0省略"><a href="#第一位0省略" class="headerlink" title="第一位0省略"></a>第一位0省略</h4><blockquote>
-<p>在写属性值时，如果写小数第一位是0，请省略它：<code>font-size: .8em;</code></p>
-</blockquote>
-<h4 id="十六进制写法"><a href="#十六进制写法" class="headerlink" title="十六进制写法"></a>十六进制写法</h4><blockquote>
-<p>表达颜色值等其他情况，尽量写3位数的十六进制，更加精简：<code>color: #ebc;</code>。而不是6位数。</p>
-</blockquote>
-<h4 id="命名前缀"><a href="#命名前缀" class="headerlink" title="命名前缀"></a>命名前缀</h4><blockquote>
-<p>在大型项目开发时（事实上小型项目也应该这样做），各个元素应该加上规范的前缀,用破折号链接它们，当作命名空间的作用，在团队合作之间减少冲突：</p>
-<p><code>.adw-help {} /* AdWords */</code></p>
-<p><code>#maia-note {} /* Maia */</code></p>
-</blockquote>
-<h4 id="命名分隔符"><a href="#命名分隔符" class="headerlink" title="命名分隔符"></a>命名分隔符</h4><blockquote>
-<p>在命名时，如果有两个单词以上，请不要直接将这些单词写在一起，影响可读性，应该使用<code>-</code>来链接：<br><code>.ads-sample {}</code></p>
-</blockquote>
-<h4 id="hacks"><a href="#hacks" class="headerlink" title="hacks"></a>hacks</h4><blockquote>
-<p>我们在处理一些滤镜或者其他在各个浏览器之间表现不一样的属性时，hack是我们常用的。但是应该尽量减少hack的使用，这是一种无奈之举。过多的hack让项目显得非常臃肿。</p>
-</blockquote>
-<h2 id="CSS格式规则"><a href="#CSS格式规则" class="headerlink" title="CSS格式规则"></a>CSS格式规则</h2><h4 id="书写顺序"><a href="#书写顺序" class="headerlink" title="书写顺序"></a>书写顺序</h4><blockquote>
-<p>在书写css属性时，我们应该养成固定的属性顺序。以便保持代码的统一性，比如-moz在-webkit之前。</p>
-<pre><code>background: fuchsia;
-border: 1px solid;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
-border-radius: 4px;
-color: black;
-text-align: center;
-text-indent: 2em;</code></pre>
-
-</blockquote>
-<h4 id="块内容的缩进"><a href="#块内容的缩进" class="headerlink" title="块内容的缩进"></a>块内容的缩进</h4><blockquote>
-<p>缩进所有的块内容，这样可以提高代码的层次感：</p>
-<pre><code>@media screen, projection {
-      html {
-        background: #fff;
-        color: #444;
-      }
-}</code></pre>
-
-</blockquote>
-<h4 id="分号停止声明"><a href="#分号停止声明" class="headerlink" title="分号停止声明"></a>分号停止声明</h4><blockquote>
-<p>在css声明时，每次都要以分号来结束声明，即使不写分号也没有什么影响：</p>
-<pre><code>/* 不推荐 */
-.test {
-  display: block;
-  height: 100px
-}
-/* 推荐 */
-.test {
-  display: block;
-  height: 100px;
-}</code></pre>
-
-</blockquote>
-<h4 id="停止属性名称"><a href="#停止属性名称" class="headerlink" title="停止属性名称"></a>停止属性名称</h4><blockquote>
-<p>在书写属性名称的时候，冒号后面应该跟一个空格，然后在书写属性值：</p>
-<pre><code>/* 不推荐 */
-h3 {
-  font-weight:bold;
-}
-/* 推荐 */
-h3 {
-  font-weight: bold;
-}</code></pre>
-
-
-</blockquote>
-<h4 id="块的分离"><a href="#块的分离" class="headerlink" title="块的分离"></a>块的分离</h4><blockquote>
-<p>各个块之间应该用空行分离开，并且在写完选择器之后追加一个空格再来继续写花括号</p>
-<pre><code>/* 推荐 */
-.video {
-    margin-top: 1em;
-}</code></pre>
-
-</blockquote>
-<h4 id="选择器的分离"><a href="#选择器的分离" class="headerlink" title="选择器的分离"></a>选择器的分离</h4><blockquote>
-<p>如果有多个选择器，那么应该使用逗号来分离它们：</p>
-<pre><code>/* 不推荐 */
-a:focus, a:active {
-  position: relative; top: 1px;
-}
-/* 推荐 */
-h1,
-h2,
-h3 {
-  font-weight: normal;
-  line-height: 1.2;
-}</code></pre>
-
-
-</blockquote>
-<h4 id="规则的分离"><a href="#规则的分离" class="headerlink" title="规则的分离"></a>规则的分离</h4><blockquote>
-<p>每个规则都应该新起一行来书写：</p>
-<pre><code>html {
-  background: #fff;
-}
-</code></pre><pre><code>
-body {
-  margin: auto;
-  width: 50%;
-}</code></pre>
-
-
-</blockquote>
-<h4 id="css引号"><a href="#css引号" class="headerlink" title="css引号"></a>css引号</h4><blockquote>
-<p>css应用值得时候应该使用单引号，而不是双引号：</p>
-<pre><code>/* 不推荐 */
-@import url("//www.google.com/css/maia.css");
-html {
-  font-family: "open sans", arial, sans-serif;
-}
-/* 推荐 */
-@import url(//www.google.com/css/maia.css);
-html {
-  font-family: 'open sans', arial, sans-serif;
-}</code></pre>
-
-</blockquote>
-<h2 id="CSS规则元"><a href="#CSS规则元" class="headerlink" title="CSS规则元"></a>CSS规则元</h2><h4 id="注释-1"><a href="#注释-1" class="headerlink" title="注释"></a>注释</h4><blockquote>
-<p>在每段css的头部应该有注释，来标记该段服务于什么内容：</p>
-<pre><code>/* Header */
-.adw-header {}
-/* Footer */
-.adw-footer {}
-/* Gallery */
-.adw-gallery {}</code></pre>
-
-</blockquote>
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/19/Google前端代码规范-HTML-CSS/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1290,67 +846,14 @@ html {
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。</p>
 <p>当前现在网上也有很多webpack的讲解，但都是些傻瓜式的配置教程，没有对webpack其中<code>webpack.config.js</code>中的字段进行详细的解释，以至于很多同学只是会只用别人配置好的项目，没有独立diy的能力。所以本文将从webpack的安装、核心原理、功能说明、配置字段解析这几个大方向来教大家学会如何使用webpack。</p>
-<h2 id="Webpack安装"><a href="#Webpack安装" class="headerlink" title="Webpack安装"></a>Webpack安装</h2><ol>
-<li>Webpack很多功能都依赖于node.js环境，所以在使用webpack前你的电脑上必须要有node.js+npm，至于这两者如何安装配置我就不说了，不在本文讨论范围内，网上有很多现成的教学。</li>
-<li>安装分为全局安装和非全局，我们建议非全局安装的方式<ul>
-<li>全局：我们常规直接使用 npm 的形式来安装Webpack：<code>$ npm install webpack -g</code></li>
-<li>非全局：正常情况下我们都会将依赖写入<code>package.json</code>，然后执行初始化命令：<code>$ npm init</code>，安装webpack：<code>$ npm install webpack --save-dev</code>。</li>
-</ul>
-</li>
-</ol>
-<h2 id="Webpack核心原理"><a href="#Webpack核心原理" class="headerlink" title="Webpack核心原理"></a>Webpack核心原理</h2><p>webpack有两大核心原理：</p>
-<ol>
-<li>一切皆模块<br>正如js文件可以是一个“模块（module）”一样，其他的（如css、image或html）文件也可视作模 块。因此，你可以<code>require(&#39;myJSfile.js&#39;)</code>亦可以<code>require(&#39;myCSSfile.css&#39;)</code>。这意味着我们可以将事物（业务）分割成更小的易于管理的片段，从而达到重复利用等的目的。</li>
-<li>按需加载<br>传统的模块打包工具（module bundlers）最终将所有的模块编译生成一个庞大的bundle.js文件。但是在真实的app里边，“bundle.js”文件可能有10M到15M之大可能会导致应用一直处于加载中状态。因此Webpack使用许多特性来分割代码然后生成多个“bundle”文件，而且异步加载部分代码以实现按需加载。</li>
-</ol>
-<h2 id="webpack功能"><a href="#webpack功能" class="headerlink" title="webpack功能"></a>webpack功能</h2><h3 id="1-开发模式和生产模式"><a href="#1-开发模式和生产模式" class="headerlink" title="1.开发模式和生产模式"></a>1.开发模式和生产模式</h3><p>首先要知道的是Webpack有许许多多的特性，一些是”开发模式“下才有的，一些是”生产模式“下才有的，还有一些是两种模式下都有的：</p>
-<p><img src="http://i.imgur.com/AMYCGhZ.png" alt="开发模式和生产模式"></p>
-<p>例如：</p>
-<blockquote>
-<p>为了生成bundles文件你可能在package.json文件加入如下的scripts项：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="comment">// 运行npm run build 来编译生成生产模式下的bundles</span></div><div class="line">  <span class="string">"build"</span>: <span class="string">"webpack --config webpack.config.prod.js"</span>,</div><div class="line">  <span class="comment">// 运行npm run dev来生成开发模式下的bundles以及启动本地server</span></div><div class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="2-webpack-CLI-和webpack-dev-server"><a href="#2-webpack-CLI-和webpack-dev-server" class="headerlink" title="2.webpack CLI 和webpack-dev-server"></a>2.webpack CLI 和webpack-dev-server</h3><p>Webpack为用户提供两种交互接口：</p>
-<ol>
-<li>Webpack CLI tool：默认的交互方式（已随Webpack本身安装到本地）</li>
-<li>webpack-dev-server：一个Node.js服务器（需要开发者从npm自行安装）</li>
-</ol>
-<h5 id="Webpack-CLI（有利于生产模式下打包）"><a href="#Webpack-CLI（有利于生产模式下打包）" class="headerlink" title="Webpack CLI（有利于生产模式下打包）"></a><em>Webpack CLI（有利于生产模式下打包）</em></h5><p>用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">方式<span class="number">1</span>: </div><div class="line"><span class="comment">// 全局模式安装webpack</span></div><div class="line">npm install webpack --g</div><div class="line"><span class="comment">// 在终端输入</span></div><div class="line">$ webpack <span class="comment">// &lt;--使用webpack.config.js生成bundle</span></div><div class="line">方式 <span class="number">2</span> :</div><div class="line"><span class="comment">// 非全局模式安装webpack然后添加到package.json依赖里边</span></div><div class="line">npm install webpack --save</div><div class="line"><span class="comment">// 添加build命令到package.json的scripts配置项</span></div><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line"> <span class="string">"build"</span>: <span class="string">"webpack --config webpack.config.prod.js -p"</span>,</div><div class="line"> ...</div><div class="line"> &#125;</div><div class="line"><span class="comment">// 用法：</span></div><div class="line"><span class="string">"npm run build"</span></div></pre></td></tr></table></figure></p>
-<h5 id="webpack-dev-server（有利于在开发模式下编译）"><a href="#webpack-dev-server（有利于在开发模式下编译）" class="headerlink" title="webpack-dev-server（有利于在开发模式下编译）"></a><em>webpack-dev-server（有利于在开发模式下编译）</em></h5><p>这是一个基于Express.js框架开发的web server，默认监听8080端口。server内部调用Webpack，这样做的好处是提供了额外的功能如热更新“Live Reload”以及热替换“Hot Module Replacement”（即HMR）。</p>
-<ol>
-<li><p>用法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">方式 <span class="number">1</span>:</div><div class="line"><span class="comment">// 全局安装</span></div><div class="line">npm install webpack-dev-server --save</div><div class="line"><span class="comment">// 终端输入</span></div><div class="line">$ webpack-dev-server --inline --hot</div><div class="line">用法 <span class="number">2</span>:</div><div class="line"><span class="comment">// 添加到package.json scripts</span></div><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line"> <span class="string">"start"</span>: <span class="string">"webpack-dev-server --inline --hot"</span>,</div><div class="line"> ...</div><div class="line"> &#125;</div><div class="line"><span class="comment">// 运行： </span></div><div class="line">$ npm start</div><div class="line"><span class="comment">// 浏览器预览：</span></div><div class="line">http:<span class="comment">//localhost:8080</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>“hot” 和 “inline”功能：<br>“inline”选项会为入口页面添加“热加载”功能，“hot”选项则开启“热替换（Hot Module Reloading）”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）。如果两个参数都传入，当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过CLI传参</span></div><div class="line">webpack-dev-server --hot --inline</div><div class="line"><span class="comment">// 通过webpack.config.js传参</span></div><div class="line">devServer: &#123;</div><div class="line">  inline: <span class="literal">true</span>,</div><div class="line">  hot:<span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="相关配置字段解析"><a href="#相关配置字段解析" class="headerlink" title="相关配置字段解析"></a>相关配置字段解析</h2><h3 id="1-entry"><a href="#1-entry" class="headerlink" title="1.entry"></a>1.entry</h3><p>Enter配置项告诉Webpack应用的根模块或起始点在哪里，它的值可以是字符串、数组或对象。这看起来可能令人困惑，因为不同类型的值有着不同的目的。</p>
-<p>像绝大多数app一样，倘若你的应用只有一个单一的入口，enter项的值你可以使用任意类型，最终输出的结果都是一样的。</p>
-<h5 id="enter：数组类型"><a href="#enter：数组类型" class="headerlink" title="enter：数组类型"></a><em>enter：数组类型</em></h5><p>你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。例如，你可能在html文件里引用了“googleAnalytics.js”文件，可以告诉Webpack将其加到bundle.js的最后。<br><img src="http://i.imgur.com/sk32RvT.png" alt=""></p>
-<h5 id="enter：对象"><a href="#enter：对象" class="headerlink" title="enter：对象"></a><em>enter：对象</em></h5><p>现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。</p>
-<p>以下的配置将会生成两个js文件：indexEntry.js和profileEntry.js分别会在index.html和profile.html中被引用。<br><img src="http://i.imgur.com/U1f6dJ4.png" alt=""></p>
-<h5 id="enter：混合类型"><a href="#enter：混合类型" class="headerlink" title="enter：混合类型"></a><em>enter：混合类型</em></h5><p>你也可以在enter将数组对象混用。例如下面的配置将会生成3个文件：vender.js（包含三个文件），index.js和profile.js文件。<br><img src="http://i.imgur.com/bY9wAv3.png" alt=""></p>
-<h3 id="2-output"><a href="#2-output" class="headerlink" title="2.output"></a>2.output</h3><p>output项告诉webpack怎样存储输出结果以及存储到哪里。output的两个配置项“path”和“publicPath”可能会给大家造成困惑。</p>
-<p>“path”仅仅告诉Webpack结果存储在哪里，然而“publicPath”项则被许多Webpack的插件用于在生产模式下更新内嵌到css、html文件里的url值。<br><img src="http://i.imgur.com/JHRGPnt.png" alt=""></p>
-<p>例如，在localhost里的css文件中边你可能用“./test.png”这样的url来加载图片，但是在生产模式下“test.png”文件可能会定位到CDN上并且你的Node.js服务器可能是运行在HeroKu上边的。这就意味着在生产环境你必须手动更新所有文件里的url为CDN的路径。</p>
-<p>然而你也可以使用Webpack的“publicPath”选项和一些插件来在生产模式下编译输出文件时自动更新这些url。<br><img src="http://i.imgur.com/pQJGrEz.png" alt=""><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 开发环境：Server和图片都是在localhost（域名）下</span></div><div class="line">.image &#123; </div><div class="line">  background-image: url(<span class="string">'./test.png'</span>);</div><div class="line"> &#125;</div><div class="line"><span class="comment">// 生产环境：Server部署下HeroKu但是图片在CDN上</span></div><div class="line">.image &#123; </div><div class="line">  background-image: url(<span class="string">'https://someCDN/test.png'</span>);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-module-amp-loaders"><a href="#3-module-amp-loaders" class="headerlink" title="3.module &amp; loaders"></a>3.module &amp; loaders</h3><h5 id="module"><a href="#module" class="headerlink" title="module"></a><em>module</em></h5><p>模块加载器是可自由添加的Node模块，用于将不同类型的文件“load”或“import”并转换成浏览器可以识别的类型，如js、Stylesheet等。更高级的模块加载器甚至可以支持使用ES6里边的“require”或“import”引入模块。</p>
-<p>例如，你可以使用babel-loader来将使用ES6语法写成的文件转换成ES5：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line"> loaders: [&#123;</div><div class="line">  test: <span class="regexp">/\.js$/</span>, <span class="comment">// 匹配.js文件，如果通过则使用下面的loader</span></div><div class="line">  exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// 排除node_modules文件夹</span></div><div class="line">  loader: <span class="string">'babel'</span> <span class="comment">// 使用babel（babel-loader的简写）作为loader</span></div><div class="line"> &#125;]</div></pre></td></tr></table></figure></p>
-<h5 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a><em>loaders</em></h5><p>loaders意为“加载器”，区分于plugins“插件”。</p>
-<ul>
-<li><p>链式的加载器（从右往左执行）<br>多个loader可以用在同一个文件上并且被链式调用。链式调用时从右到左执行且loader之间用“!”来分割。<br>例如，假设我们有一个名为“myCssFile.css”的css文件，然后我们想将它的内容使用style标签内联到最终输出的html里边。我们可以使用css-loader和style-loader两个loader来达到目的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line"> loaders: [&#123;</div><div class="line">  test: <span class="regexp">/\.css$/</span>,</div><div class="line">  loader: <span class="string">'style!css'</span> <span class="comment">//(short for style-loader!css-loader)</span></div><div class="line"> &#125;]</div></pre></td></tr></table></figure>
-</li>
-<li><p>loader自身可以配置<br>模块加载器（loader）自身可以根据传入不同的参数进行配置。<br>在下面的例子中，我们可以配置url-loader来将小于1024字节的图片使用DataUrl替换而大于1024字节的图片使用url，我们可以用如下两种方式通过传入“limit“参数来实现这一目的：<br><img src="http://i.imgur.com/tBdakXB.png" alt=""></p>
-</li>
-</ul>
-<h3 id="4-plugins"><a href="#4-plugins" class="headerlink" title="4.plugins"></a>4.plugins</h3><p>插件一般都是用于输出bundle的node模块。<br>例如，uglifyJSPlugin获取bundle.js然后压缩和混淆内容以减小文件体积。<br>类似的extract-text-webpack-plugin内部使用css-loader和style-loader来收集所有的css到一个地方最终将结果提取结果到一个独立的”styles.css“文件，并且在html里边引用style.css文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="comment">// 获取所有的.css文件，合并它们的内容然后提取css内容到一个独立的”styles.css“里</span></div><div class="line"><span class="keyword">var</span> ETP = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line"> loaders: [</div><div class="line">  &#123;test: <span class="regexp">/\.css$/</span>, loader:ETP.extract(<span class="string">"style-loader"</span>,<span class="string">"css-loader"</span>) &#125;</div><div class="line">  ]</div><div class="line">&#125;,</div><div class="line">plugins: [</div><div class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>) <span class="comment">//Extract to styles.css file</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="5-resolve"><a href="#5-resolve" class="headerlink" title="5.resolve"></a>5.resolve</h3><p>很多Webpack的配置文件都有一个resolve属性，然后就像下面代码所示有一个空字符串的值。空字符串在此是为了resolve一些在import文件时不带文件扩展名的表达式，如<code>require(&#39;./myJSFile&#39;)</code>或者<code>import myJSFile from &#39;./myJSFile&#39;</code>（注：实际就是自动添加后缀，默认是当成js文件来查找路径）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> resolve: &#123;</div><div class="line">   extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2>
-          
+<h2 id="Webpack安装"><a href="#Webpack安装" class="headerlink" title="Webpack安装"></a>Webpack安装</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/19/深入了解webpack/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1434,10 +937,10 @@ html {
 
           
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags">
                 <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
