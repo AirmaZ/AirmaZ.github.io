@@ -229,6 +229,160 @@
             
               
                 
+                <a class="post-title-link" href="/2017/07/19/关于git提交时换行符冲突问题的解决办法/" itemprop="url">
+                  关于git提交时换行符冲突问题的解决办法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-19T11:13:26+08:00" content="2017年07月19日">
+              2017年07月19日
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/07/19/关于git提交时换行符冲突问题的解决办法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/19/关于git提交时换行符冲突问题的解决办法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><ol>
+<li><h4 id="修改git配置"><a href="#修改git配置" class="headerlink" title="修改git配置"></a>修改git配置</h4><ul>
+<li>打开cmd。</li>
+<li>输入<code>git config --global core.autocrlf input</code>(pull时不转换，push转换成unix换行符)</li>
+<li>输入<code>git config --global core.safecrlf true</code>（不允许提交包含混乱换行符的文件）</li>
+</ul>
+</li>
+<li><h4 id="修改IDE的换行符编码"><a href="#修改IDE的换行符编码" class="headerlink" title="修改IDE的换行符编码"></a>修改IDE的换行符编码</h4><ul>
+<li>eclipse：<ul>
+<li>打开<code>Windows -&gt; Preference -&gt; General -&gt; workspace</code>，</li>
+<li>将<code>New text file line delimiter</code> 设置为 <code>other：unix</code></li>
+</ul>
+</li>
+<li>idea和webstorm：<ul>
+<li>打开<code>file-setting-Editor-code style</code></li>
+<li>将<code>line separator</code>设置为<code>unix and OS X(\n)</code>.</li>
+</ul>
+</li>
+<li>其他编辑器或者ide自行百度如何修改换行符编码</li>
+</ul>
+</li>
+<li><h4 id="检查git配置是否修改成功"><a href="#检查git配置是否修改成功" class="headerlink" title="检查git配置是否修改成功"></a>检查git配置是否修改成功</h4><ul>
+<li>输入<code>git config --global core.autocrlf</code>查看值是否为<code>input</code></li>
+<li>输入<code>git config --global core.safecrlf</code>查看值是否为<code>true</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="将目前的文件的换行符批量转换"><a href="#将目前的文件的换行符批量转换" class="headerlink" title="将目前的文件的换行符批量转换"></a>将目前的文件的换行符批量转换</h2><p>若修改配置后git不允许你commit，并提示<code>CRLF would be replaced by LF XXX</code>，则说明你当前的文件已经是windows和unix换行符乱用的情况了。则需要对文件进行批量换行符转换（以eclipse为例）：</p>
+<ol>
+<li>需要一个人pull最新的代码，然后进eclipse</li>
+<li>选择目录或者文件夹，然后点击<code>file-Convert Line Delimiters To</code>-<code>Unix</code></li>
+<li>选择Select All将所有文件的换行符转换</li>
+<li>commit所有文件并push到仓库。</li>
+<li>其他所有人删掉代码重新拉项目</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/21/利用inline-block完成垂直居中/" itemprop="url">
                   利用inline-block完成垂直居中
                 </a>
@@ -1053,7 +1207,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1107,7 +1261,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
