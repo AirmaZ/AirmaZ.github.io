@@ -229,6 +229,143 @@
             
               
                 
+                <a class="post-title-link" href="/2017/07/26/无限级联下拉框（jQuery插件）/" itemprop="url">
+                  '无限级联下拉框（jQuery插件）'
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-26T18:29:09+08:00" content="2017年07月26日">
+              2017年07月26日
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/07/26/无限级联下拉框（jQuery插件）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/26/无限级联下拉框（jQuery插件）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="jquery-cascadeDropDown-js-—多级级联下拉框"><a href="#jquery-cascadeDropDown-js-—多级级联下拉框" class="headerlink" title="jquery.cascadeDropDown.js —多级级联下拉框"></a>jquery.cascadeDropDown.js —多级级联下拉框</h1><p>依赖于jquery库</p>
+<ul>
+<li><h4 id="插件版本"><a href="#插件版本" class="headerlink" title="插件版本"></a>插件版本</h4><ul>
+<li>V1.0.0</li>
+</ul>
+</li>
+<li><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><ul>
+<li><a href="https://github.com/AirmaZ/cascadeDropDown" target="_blank" rel="external">https://github.com/AirmaZ/cascadeDropDown</a></li>
+</ul>
+</li>
+<li><h4 id="组件特点"><a href="#组件特点" class="headerlink" title="组件特点"></a>组件特点</h4><ul>
+<li>无限级联，主要用于展示包涵大类、小类，或者子类的数据。</li>
+<li>支持模糊搜索、鼠标滑轮滚动翻页、级联方向调整功能。</li>
+<li>支持通过API来控制组件</li>
+<li>支持事件回调自定义</li>
+</ul>
+</li>
+<li><h4 id="需求环境"><a href="#需求环境" class="headerlink" title="需求环境"></a>需求环境</h4><ul>
+<li>测试jQuery版本：3.0.0，理论1.7.2以上</li>
+<li>ie9及以上版本，及现主流浏览器（chrome，firefox等）</li>
+</ul>
+</li>
+<li><h4 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h4></li>
+</ul>
+<ul>
+<li><h4 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO:"></a>DEMO:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">HTML:</div><div class="line"> &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;src/CascadeDropDown.css&quot;&gt;</div><div class="line"> &lt;script src=&quot;src/jquery-3.1.1.min.js&quot;&gt;&lt;/script&gt;</div><div class="line"> &lt;script src=&quot;src/CascadeDropDown.js&quot;&gt;&lt;/script&gt;</div><div class="line">JS:</div><div class="line">$(&quot;#dropDown&quot;).initCascadeDropDown(&#123;  //尽量使用ID来初始化下拉框</div><div class="line">    options:&#123;</div><div class="line">        &quot;width&quot;:&quot;150px&quot;, //插件宽度</div><div class="line">        &quot;height&quot;:&quot;30px&quot;, //插件高度</div><div class="line">        &quot;size&quot;:&quot;20px&quot;,   //插件缩放</div><div class="line">        &quot;paging&quot;:7,      //每页呈现多少条数据</div><div class="line">        &quot;search&quot;:true,   //是否开启搜索功能</div><div class="line">        &quot;selected&quot;:&quot;001001&quot;,  //默认选中值</div><div class="line">        &quot;direction&quot;:&quot;right&quot;,  //级联朝向（方向）</div><div class="line">        &quot;placeholder&quot;:&quot;请选择&quot;, //搜索框占位符</div><div class="line">        &quot;isCategoriesSelected&quot;:true,  //第一大类是否可选</div><div class="line">        &quot;clickCallback&quot;:function (data) &#123; //事件回调</div><div class="line">            console.log(&quot;标题点击事件&quot;);</div><div class="line">            console.log(data);</div><div class="line">        &#125;,</div><div class="line">        &quot;selectCallback&quot;:function (data) &#123;</div><div class="line">            console.log(&quot;选中事件&quot;);</div><div class="line">            console.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    data : data  //呈现的数据</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/orBgwW7.jpg" alt="效果"></p>
+<ul>
+<li><h4 id="data数据格式示范："><a href="#data数据格式示范：" class="headerlink" title="data数据格式示范："></a>data数据格式示范：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;7&quot;: &#123;name: &quot;大类3&quot;，disable:true&#125;,</div><div class="line">    &quot;8&quot;: &#123;name: &quot;大类4&quot;&#125;,</div><div class="line">    &quot;9&quot;: &#123;</div><div class="line">        name: &quot;大类2&quot;, children: &#123;</div><div class="line">            &quot;04&quot;: &#123;</div><div class="line">                name: &quot;小类1&quot;, children: &#123;</div><div class="line">                    &quot;xx&quot;: &#123;name: &quot;子类&quot;&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            &quot;05&quot;: &#123;name: &quot;小类2&quot;&#125;,</div><div class="line">            &quot;06&quot;: &#123;name: &quot;好长好长的一段文字&quot;&#125;,</div><div class="line">            &quot;07&quot;: &#123;name: &quot;小类2&quot;&#125;,</div><div class="line">            &quot;xba&quot;: &#123;name: &quot;xbox&quot;&#125;,</div><div class="line">            &quot;001001&quot;: &#123;name: &quot;ps4&quot;&#125;,</div><div class="line">            &quot;all&quot;: &#123;name: &quot;默认选中的&quot;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">注意：属性名为当前项的value值，嵌套的子类放在children字段内，需要禁用的选项请设置disable:true</div></pre></td></tr></table></figure>
+</li>
+<li><h4 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h4><p>|参数名称 |参数类型|默认值|描述|<br>| ————-|:————-: |:————-:|:—–|<br>| width |string| auto|组件的宽度，可以传css中width的所有值|<br>| height |string| 20px|组件的高度，可以传css中width的所有值|<br>| size |string| 根据height自适应|组件的缩放，包括字体和图形大小，最小设为12|<br>| paging |int| 15|每页所展示选项的数量|<br>| search |Boolean| true|是否开启搜索功能|<br>| selected |string| null|默认选中项，传入选项的value值|<br>| direction |string| right|级联朝向，可选择向左展开|<br>| placeholder |string| “Search…”|搜索框的占位符，不开启搜索功能时此值无效|<br>| isCategoriesSelected |Boolean|true |第一大类是否需要选中，不影响子类|<br>| clickCallback |function|null |点击组件标题的事件回调，返回当前选中的参数（data）|<br>| selectCallback |function|null |选中动作的事件回调，返回当前选中的参数（data）|<br>| keyupCallback |function|null |搜索时按键放开的事件回调，返回当前搜索到的数据（data）|<br>| keydownCallback |function|null |搜索时按键按下的事件回调，返回当前搜索到的数据（data）|</p>
+</li>
+<li><h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>|接口名称 |参数|调用方式|描述|<br>| ————-|:————-: |:————-:|:—–|<br>| initCascadeDropDown |配置和数据| jQuery实例调用|初始化组件|<br>| getCascadeData |无| jQuery实例调用|获得当前组件选中的值|<br>| setCascadeData |string/int/object| jQuery实例调用|设置组件选中值：1.传入string/int类型，组件会自动选中当前数据中存在的项。2.通过object（例：{“0x11”:”选中”}）可强制选中当前数据中不存在的项|<br>| getNameOfValue |string/int| 只能通过initCascadeDropDown返回值调用|根据value值查找组件中的文本|</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/07/19/关于git提交时换行符冲突问题的解决办法/" itemprop="url">
                   关于git提交时换行符冲突问题的解决办法
                 </a>
@@ -1207,7 +1344,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

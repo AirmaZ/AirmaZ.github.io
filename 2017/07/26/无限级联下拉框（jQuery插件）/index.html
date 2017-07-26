@@ -1,0 +1,708 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="other," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="jquery.cascadeDropDown.js —多级级联下拉框依赖于jquery库
+
+插件版本
+V1.0.0
+
+
+下载地址
+https://github.com/AirmaZ/cascadeDropDown
+
+
+组件特点
+无限级联，主要用于展示包涵大类、小类，或者子类的数据。
+支持模糊搜索、鼠标滑轮滚动翻页、级联方向调整功能。
+支持通过API来控制组件
+支持事件回调自定义
+
+
+需求环境
+测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="'无限级联下拉框（jQuery插件）'">
+<meta property="og:url" content="http://AirmaZ.github.io/2017/07/26/无限级联下拉框（jQuery插件）/index.html">
+<meta property="og:site_name" content="HongWei's Notes">
+<meta property="og:description" content="jquery.cascadeDropDown.js —多级级联下拉框依赖于jquery库
+
+插件版本
+V1.0.0
+
+
+下载地址
+https://github.com/AirmaZ/cascadeDropDown
+
+
+组件特点
+无限级联，主要用于展示包涵大类、小类，或者子类的数据。
+支持模糊搜索、鼠标滑轮滚动翻页、级联方向调整功能。
+支持通过API来控制组件
+支持事件回调自定义
+
+
+需求环境
+测试">
+<meta property="og:image" content="http://i.imgur.com/orBgwW7.jpg">
+<meta property="og:updated_time" content="2017-07-26T10:30:26.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="'无限级联下拉框（jQuery插件）'">
+<meta name="twitter:description" content="jquery.cascadeDropDown.js —多级级联下拉框依赖于jquery库
+
+插件版本
+V1.0.0
+
+
+下载地址
+https://github.com/AirmaZ/cascadeDropDown
+
+
+组件特点
+无限级联，主要用于展示包涵大类、小类，或者子类的数据。
+支持模糊搜索、鼠标滑轮滚动翻页、级联方向调整功能。
+支持通过API来控制组件
+支持事件回调自定义
+
+
+需求环境
+测试">
+<meta name="twitter:image" content="http://i.imgur.com/orBgwW7.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://AirmaZ.github.io/2017/07/26/无限级联下拉框（jQuery插件）/"/>
+
+  <title> '无限级联下拉框（jQuery插件）' | HongWei's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?73311bac6b4a5a2dfacc4e7cd326c77a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HongWei's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">朱宏伟的前端笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                '无限级联下拉框（jQuery插件）'
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-26T18:29:09+08:00" content="2017年07月26日">
+              2017年07月26日
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/07/26/无限级联下拉框（jQuery插件）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/26/无限级联下拉框（jQuery插件）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="jquery-cascadeDropDown-js-—多级级联下拉框"><a href="#jquery-cascadeDropDown-js-—多级级联下拉框" class="headerlink" title="jquery.cascadeDropDown.js —多级级联下拉框"></a>jquery.cascadeDropDown.js —多级级联下拉框</h1><p>依赖于jquery库</p>
+<ul>
+<li><h4 id="插件版本"><a href="#插件版本" class="headerlink" title="插件版本"></a>插件版本</h4><ul>
+<li>V1.0.0</li>
+</ul>
+</li>
+<li><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><ul>
+<li><a href="https://github.com/AirmaZ/cascadeDropDown" target="_blank" rel="external">https://github.com/AirmaZ/cascadeDropDown</a></li>
+</ul>
+</li>
+<li><h4 id="组件特点"><a href="#组件特点" class="headerlink" title="组件特点"></a>组件特点</h4><ul>
+<li>无限级联，主要用于展示包涵大类、小类，或者子类的数据。</li>
+<li>支持模糊搜索、鼠标滑轮滚动翻页、级联方向调整功能。</li>
+<li>支持通过API来控制组件</li>
+<li>支持事件回调自定义</li>
+</ul>
+</li>
+<li><h4 id="需求环境"><a href="#需求环境" class="headerlink" title="需求环境"></a>需求环境</h4><ul>
+<li>测试jQuery版本：3.0.0，理论1.7.2以上</li>
+<li>ie9及以上版本，及现主流浏览器（chrome，firefox等）</li>
+</ul>
+</li>
+<li><h4 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h4></li>
+</ul>
+<ul>
+<li><h4 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO:"></a>DEMO:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">HTML:</div><div class="line"> &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;src/CascadeDropDown.css&quot;&gt;</div><div class="line"> &lt;script src=&quot;src/jquery-3.1.1.min.js&quot;&gt;&lt;/script&gt;</div><div class="line"> &lt;script src=&quot;src/CascadeDropDown.js&quot;&gt;&lt;/script&gt;</div><div class="line">JS:</div><div class="line">$(&quot;#dropDown&quot;).initCascadeDropDown(&#123;  //尽量使用ID来初始化下拉框</div><div class="line">    options:&#123;</div><div class="line">        &quot;width&quot;:&quot;150px&quot;, //插件宽度</div><div class="line">        &quot;height&quot;:&quot;30px&quot;, //插件高度</div><div class="line">        &quot;size&quot;:&quot;20px&quot;,   //插件缩放</div><div class="line">        &quot;paging&quot;:7,      //每页呈现多少条数据</div><div class="line">        &quot;search&quot;:true,   //是否开启搜索功能</div><div class="line">        &quot;selected&quot;:&quot;001001&quot;,  //默认选中值</div><div class="line">        &quot;direction&quot;:&quot;right&quot;,  //级联朝向（方向）</div><div class="line">        &quot;placeholder&quot;:&quot;请选择&quot;, //搜索框占位符</div><div class="line">        &quot;isCategoriesSelected&quot;:true,  //第一大类是否可选</div><div class="line">        &quot;clickCallback&quot;:function (data) &#123; //事件回调</div><div class="line">            console.log(&quot;标题点击事件&quot;);</div><div class="line">            console.log(data);</div><div class="line">        &#125;,</div><div class="line">        &quot;selectCallback&quot;:function (data) &#123;</div><div class="line">            console.log(&quot;选中事件&quot;);</div><div class="line">            console.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    data : data  //呈现的数据</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/orBgwW7.jpg" alt="效果"></p>
+<ul>
+<li><h4 id="data数据格式示范："><a href="#data数据格式示范：" class="headerlink" title="data数据格式示范："></a>data数据格式示范：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;7&quot;: &#123;name: &quot;大类3&quot;，disable:true&#125;,</div><div class="line">    &quot;8&quot;: &#123;name: &quot;大类4&quot;&#125;,</div><div class="line">    &quot;9&quot;: &#123;</div><div class="line">        name: &quot;大类2&quot;, children: &#123;</div><div class="line">            &quot;04&quot;: &#123;</div><div class="line">                name: &quot;小类1&quot;, children: &#123;</div><div class="line">                    &quot;xx&quot;: &#123;name: &quot;子类&quot;&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            &quot;05&quot;: &#123;name: &quot;小类2&quot;&#125;,</div><div class="line">            &quot;06&quot;: &#123;name: &quot;好长好长的一段文字&quot;&#125;,</div><div class="line">            &quot;07&quot;: &#123;name: &quot;小类2&quot;&#125;,</div><div class="line">            &quot;xba&quot;: &#123;name: &quot;xbox&quot;&#125;,</div><div class="line">            &quot;001001&quot;: &#123;name: &quot;ps4&quot;&#125;,</div><div class="line">            &quot;all&quot;: &#123;name: &quot;默认选中的&quot;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">注意：属性名为当前项的value值，嵌套的子类放在children字段内，需要禁用的选项请设置disable:true</div></pre></td></tr></table></figure>
+</li>
+<li><h4 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h4><p>|参数名称 |参数类型|默认值|描述|<br>| ————-|:————-: |:————-:|:—–|<br>| width |string| auto|组件的宽度，可以传css中width的所有值|<br>| height |string| 20px|组件的高度，可以传css中width的所有值|<br>| size |string| 根据height自适应|组件的缩放，包括字体和图形大小，最小设为12|<br>| paging |int| 15|每页所展示选项的数量|<br>| search |Boolean| true|是否开启搜索功能|<br>| selected |string| null|默认选中项，传入选项的value值|<br>| direction |string| right|级联朝向，可选择向左展开|<br>| placeholder |string| “Search…”|搜索框的占位符，不开启搜索功能时此值无效|<br>| isCategoriesSelected |Boolean|true |第一大类是否需要选中，不影响子类|<br>| clickCallback |function|null |点击组件标题的事件回调，返回当前选中的参数（data）|<br>| selectCallback |function|null |选中动作的事件回调，返回当前选中的参数（data）|<br>| keyupCallback |function|null |搜索时按键放开的事件回调，返回当前搜索到的数据（data）|<br>| keydownCallback |function|null |搜索时按键按下的事件回调，返回当前搜索到的数据（data）|</p>
+</li>
+<li><h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>|接口名称 |参数|调用方式|描述|<br>| ————-|:————-: |:————-:|:—–|<br>| initCascadeDropDown |配置和数据| jQuery实例调用|初始化组件|<br>| getCascadeData |无| jQuery实例调用|获得当前组件选中的值|<br>| setCascadeData |string/int/object| jQuery实例调用|设置组件选中值：1.传入string/int类型，组件会自动选中当前数据中存在的项。2.通过object（例：{“0x11”:”选中”}）可强制选中当前数据中不存在的项|<br>| getNameOfValue |string/int| 只能通过initCascadeDropDown返回值调用|根据value值查找组件中的文本|</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/other/" rel="tag">#other</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/19/关于git提交时换行符冲突问题的解决办法/" rel="next" title="关于git提交时换行符冲突问题的解决办法">
+                <i class="fa fa-chevron-left"></i> 关于git提交时换行符冲突问题的解决办法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/26/无限级联下拉框（jQuery插件）/"
+           data-title="'无限级联下拉框（jQuery插件）'" data-url="http://AirmaZ.github.io/2017/07/26/无限级联下拉框（jQuery插件）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="朱宏伟" />
+          <p class="site-author-name" itemprop="name">朱宏伟</p>
+          <p class="site-description motion-element" itemprop="description">疯疯癫癫的学前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery-cascadeDropDown-js-—多级级联下拉框"><span class="nav-number">1.</span> <span class="nav-text">jquery.cascadeDropDown.js —多级级联下拉框</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插件版本"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">插件版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载地址"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件特点"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">组件特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#需求环境"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">需求环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载地址-1"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DEMO"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">DEMO:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data数据格式示范："><span class="nav-number">1.0.0.7.</span> <span class="nav-text">data数据格式示范：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置参数"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">配置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">API</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱宏伟</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hongwei-note"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
